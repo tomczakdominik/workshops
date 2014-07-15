@@ -1,0 +1,23 @@
+!!!
+%html{ lang: 'en' }
+  %head
+    %meta{ charset: 'utf-8' }/
+    %meta{ content: 'IE=Edge,chrome=1', 'http-equiv' => 'X-UA-Compatible' }/
+    %meta{ content: 'width=device-width, initial-scale=1.0', name: 'viewport' }/
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: "all", "data-turbolinks-track" => true 
+    = javascript_include_tag 'application', "data-turbolinks-track" => true 
+    = csrf_meta_tags 
+
+  %body
+
+    .container
+      
+      %p#error= flash[:error]
+      %p.notice= notice
+      %p.notice= alert 
+      = yield
+      %div{:style => "background-color: rgba(100,100,100,0.4); position: absolute; right: 10px; bottom:10px; "}
+        .small= params
+    
+    

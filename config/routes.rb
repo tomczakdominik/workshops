@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users
-  root 'categories#index'
+  # root 'categories#index'
+  root 'base#index'
 
 
 
