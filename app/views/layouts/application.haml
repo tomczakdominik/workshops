@@ -1,0 +1,64 @@
+!!!
+%html{ lang: 'en' }
+  %head
+    %meta{ charset: 'utf-8' }/
+    %meta{ content: 'IE=Edge,chrome=1', 'http-equiv' => 'X-UA-Compatible' }/
+    %meta{ content: 'width=device-width, initial-scale=1.0', name: 'viewport' }/
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: "all", "data-turbolinks-track" => true 
+    = javascript_include_tag 'application', "data-turbolinks-track" => true 
+    = csrf_meta_tags 
+
+  %body
+    %ul.nav.nav.nav-tabs{:role => "tablist"}
+
+      %li= link_to "Application", root_path
+
+      %li.dropdown{:class => [params[:controller], params[:action]] == ["products", "index"] ? "active" : ""}
+          
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          Products
+            
+          %span.caret
+        %ul.dropdown-menu{:role => "menu"}
+          -Category.all.each do |c|
+            %li= link_to c.name, category_products_path(:category_id => c.id)
+          %li.divider
+          %li= link_to 'All', category_products_path(:category_id => '1')
+
+      
+      %li{:class => [params[:controller], params[:action]] == ["categories", "index"] ? "active" : ""}= link_to "Categories", categories_path
+
+      %li{:class => params[:controller] == "devise/sessions" ? "active" : ""}
+        -if user_signed_in?
+          = link_to "Wyloguj", destroy_user_session_path, method: :delete
+        -else
+          = link_to "Zaloguj", new_user_session_path 
+
+      -if user_signed_in?
+
+        %li{:class => [params[:controller], params[:action]] == ["devise/registrations", "edit"] ? "active" : ""}= link_to "Edit user", edit_user_registration_path
+         
+        %li.dropdown{:class => [params[:controller], params[:action]] == ["products", "new"] ? "active" : ""}
+          
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            Add product
+            
+            %span.caret
+          %ul.dropdown-menu{:role => "menu"}
+            -Category.all.each do |c|
+              %li= link_to c.name, new_category_product_path(:category_id => c.id)
+            
+
+        %li{:class => [params[:controller], params[:action]] == ["categories", "new"] ? "active" : ""}= link_to "Add category", new_category_path
+
+    .container
+      
+      %p#error= flash[:error]
+      %p.notice= notice
+      %p.notice= alert 
+      = yield
+      %div{:style => "background-color: rgba(100,100,100,0.4); position: absolute; right: 10px; bottom:10px; "}
+        .small= params
+    
+    
