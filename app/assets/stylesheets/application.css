@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+/*li {
+  color:red;
+ }
+body {
+  background-color: grey;
+*/
+ul.nav.nav.nav-tabs{
+  background-color: rgba(100,100,100,0.05) ;
+}
