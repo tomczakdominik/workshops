@@ -22,3 +22,40 @@ body {
 ul.nav.nav.nav-tabs{
   background-color: rgba(100,100,100,0.05) ;
 }
+.middle-outside{
+  border:1px dotted rgba(100,100,100,0.3);
+  border-top:none;
+  border-bottom:none;
+}
+.middle{
+  top:602px;
+  padding:2%;
+  z-index: 1;
+}
+/*.header-img{
+  left:0px;
+  right:0px;
+  border-bottom: 1px solid grey;
+  padding:0px;
+  position:absolute;
+  height:80%;
+  border:1px solid red;
+  z-index: 0;
+}*/
+.logo-img{
+  left:0px;
+  right:0px;
+  margin:0px;  
+  width:100%;
+  /*z-index:4;*/
+  /*height:100%;*/
+
+  
+}
+/*.header-div{
+  position:absolute;
+  top:30%;
+  z-index:4;
+  border: 3px solid green;
+}
+*/

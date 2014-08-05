@@ -1,0 +1,41 @@
+%ul.nav.nav.nav-tabs{:role => "tablist"}
+
+  %li= link_to "Application", root_path
+
+  %li.dropdown{:class => [params[:controller], params[:action]] == ["products", "index"] ? "active" : ""}
+      
+    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+      Products
+        
+      %span.caret
+    %ul.dropdown-menu{:role => "menu"}
+      -Category.all.each do |c|
+        %li= link_to c.name, category_products_path(:category_id => c.id)
+      %li.divider
+      %li= link_to 'All', category_products_path(:category_id => '1')
+
+  
+  %li{:class => [params[:controller], params[:action]] == ["categories", "index"] ? "active" : ""}= link_to "Categories", categories_path
+
+  %li{:class => params[:controller] == "devise/sessions" ? "active" : ""}
+    -if user_signed_in?
+      = link_to "Wyloguj", destroy_user_session_path, method: :delete
+    -else
+      = link_to "Zaloguj", new_user_session_path 
+
+  -if user_signed_in?
+
+    %li{:class => [params[:controller], params[:action]] == ["devise/registrations", "edit"] ? "active" : ""}= link_to "Edit user", edit_user_registration_path
+     
+    %li.dropdown{:class => [params[:controller], params[:action]] == ["products", "new"] ? "active" : ""}
+      
+      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+        Add product
+        
+        %span.caret
+      %ul.dropdown-menu{:role => "menu"}
+        -Category.all.each do |c|
+          %li= link_to c.name, new_category_product_path(:category_id => c.id)
+        
+
+    %li{:class => [params[:controller], params[:action]] == ["categories", "new"] ? "active" : ""}= link_to "Add category", new_category_path
