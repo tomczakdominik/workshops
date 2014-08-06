@@ -1,14 +1,15 @@
 # -*- encoding : utf-8 -*-
 class ApplicationController < ActionController::Base
   before_action :get_latest_products
+
   def get_latest_products
     @kupa = 'kupa'
     if Product.last(2)
-    @last_added = Product.last(2) 
-  else
-    @last_added = ['Not enough products', 'Not enough products']
-  end
-  end
+      @last_added = Product.last(2) 
+    else
+      @last_added = ['Not enough products', 'Not enough products']
+    end
+  end 
   
 
   def auth_user

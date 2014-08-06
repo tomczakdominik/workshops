@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   expose(:product)
   expose(:review) { Review.new }
   expose_decorated(:reviews, ancestor: :product)
-  
+
   def index
     products = Product.all
   end
@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
 
     if product.save
       category.products << product
-      redirect_to category_product_url(category, product), notice: 'Product was successfully created.'
+      redirect_to category_product_path(category, product), notice: 'Product was successfully created.'
     else
       render action: 'new'
     end
