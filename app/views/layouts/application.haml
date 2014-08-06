@@ -28,7 +28,57 @@
             %p.notice= alert 
             .middle
               = yield
+              %br
+              %br
+              %br
+              %br
+              %br
+              %h4.centered
+                %br
+                Lastly added:
+              -@last_added.each do |last_added_product|
+                .col-md-6
+                  .jumbotron                    
+                    %b=last_added_product.title
+                    %br=last_added_product.description
+                    %br
+                      Average rating:
+
+                                  
             %div{:style => "background-color: rgba(100,100,100,0.4); position: absolute; right: 10px; bottom:10px; "}
               .small= params
+            %br
+            %br
+
+            %br
+            %br
+            %br
+            %br
+            %br
+            %br
+            %br
         .col-md-1
-        
+      .col-md-1
+      .col-md-10
+        .justified 
+          %br
+          &nbsp &nbsp &nbsp &nbsp Lorem ipsum &nbsp &nbsp &nbsp &nbsp | &nbsp &nbsp &nbsp &nbsp vertitus &nbsp &nbsp &nbsp &nbsp | &nbsp &nbsp &nbsp &nbsp habarentum &nbsp &nbsp &nbsp &nbsp | &nbsp &nbsp &nbsp &nbsp aquas &nbsp &nbsp &nbsp &nbsp | &nbsp &nbsp &nbsp &nbsp Lorem &nbsp &nbsp &nbsp &nbsp | &nbsp &nbsp &nbsp &nbsp ipsum vertitus &nbsp &nbsp &nbsp &nbsp 
+      .col-md-1
+         
+      %br
+      %br
+      %br
+      %br   
+      %br
+  .bottomer    
+    %br
+    %br
+    %br
+    .centered
+      Lorem ipsum vertitus habarentum aquas. Lorem ipsum vertitus habarentum aquas. Lorem ipsum vertitus habarentum aquas
+    
+    %br
+    %br
+
+   
+

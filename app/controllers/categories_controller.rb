@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
+  # before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
   before_action :authenticate_admin, only: [:new, :edit, :create, :update]
   expose(:categories)
   expose(:category)
@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
   def show
   end
 
-  def new
+  def new 
   end
 
   def edit

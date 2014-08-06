@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   expose(:product)
   expose(:review) { Review.new }
   expose_decorated(:reviews, ancestor: :product)
-
+  
   def index
     products = Product.all
   end
@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @category = Category.find(params[:category_id])
   end
 
   def edit

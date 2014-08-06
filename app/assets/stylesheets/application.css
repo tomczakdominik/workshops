@@ -15,22 +15,43 @@
  */
 /*li {
   color:red;
- }
+} */ 
 body {
-  background-color: grey;
-*/
-ul.nav.nav.nav-tabs{
-  background-color: rgba(100,100,100,0.05) ;
+  background-color: rgba(196, 180, 146, 1);
 }
+/*ul.nav.nav.nav-tabs{
+  background-color: rgba(100,100,100,0.05) ;
+}*/
 .middle-outside{
-  border:1px dotted rgba(100,100,100,0.3);
+  /*border:1px solid rgba(116, 118, 121, 1);*/
   border-top:none;
-  border-bottom:none;
+  /*border-bottom:none;*/
+  background: white;
 }
 .middle{
   top:602px;
-  padding:2%;
+  padding:5%;
+  padding-top:2%;
   z-index: 1;
+}
+.bottomer {
+  background: rgba(105, 93, 77, 1);
+  
+  bottom:0%;
+  width:100%;
+}
+.justified{
+  text-align: justify;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+.large{
+  font-size: 18px;
+  line-height: 24px
+}
+.centered{
+  text-align: center;
 }
 /*.header-img{
   left:0px;

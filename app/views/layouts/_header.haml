@@ -2,26 +2,28 @@
 
   %li= link_to "Application", root_path
 
-  %li.dropdown{:class => [params[:controller], params[:action]] == ["products", "index"] ? "active" : ""}
+  %li{:class => [params[:controller], params[:action]] == ["products", "index"] ? "active" : ""}
+    = link_to 'Products', category_products_path(:category_id => '1')
+  / .dropdown{:class => [params[:controller], params[:action]] == ["products", "index"] ? "active" : ""}
       
-    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-      Products
-        
-      %span.caret
-    %ul.dropdown-menu{:role => "menu"}
-      -Category.all.each do |c|
-        %li= link_to c.name, category_products_path(:category_id => c.id)
-      %li.divider
-      %li= link_to 'All', category_products_path(:category_id => '1')
+  / %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+  /   Products
+      
+  /   %span.caret
+  / %ul.dropdown-menu{:role => "menu"}
+  /   -Category.all.each do |c|
+  /     %li= link_to c.name, category_products_path(:category_id => c.id)
+  /   %li.divider
+  / %li= link_to 'All', category_products_path(:category_id => '1')
 
   
   %li{:class => [params[:controller], params[:action]] == ["categories", "index"] ? "active" : ""}= link_to "Categories", categories_path
 
   %li{:class => params[:controller] == "devise/sessions" ? "active" : ""}
     -if user_signed_in?
-      = link_to "Wyloguj", destroy_user_session_path, method: :delete
+      = link_to "Sign out", destroy_user_session_path, method: :delete
     -else
-      = link_to "Zaloguj", new_user_session_path 
+      = link_to "Sign in", new_user_session_path 
 
   -if user_signed_in?
 

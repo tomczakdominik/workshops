@@ -1,5 +1,5 @@
 class BaseController < ApplicationController
-  layout "testing"
+  layout "testing"  
   def index
   end
 end

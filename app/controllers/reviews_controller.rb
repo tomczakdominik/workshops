@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-
+  before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :get_current_user
   expose(:review)
   expose(:product)
 
@@ -8,7 +9,7 @@ class ReviewsController < ApplicationController
 
   def create
     self.review = Review.new(review_params)
-
+    review.user_id = current_user.id
     if review.save
       product.reviews << review
       redirect_to category_product_url(product.category, product), notice: 'Review was successfully created.'
