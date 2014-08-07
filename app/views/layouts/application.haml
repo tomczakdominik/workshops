@@ -23,10 +23,11 @@
               / %img.logo-img{:alt => "Young Man Reading Book", :border => "0", :src => "http://thumbs.dreamstime.com/x/young-man-reading-book-portrait-over-retro-background-36367242.jpg"}
             .header-div
               = render 'layouts/header'
-            %p#error= flash[:error]
-            %p.notice= notice
-            %p.notice= alert 
+
             .middle
+              %p#error= flash[:error]
+              %p.notice= notice
+              %p.notice= alert 
               = yield
               %br
               %br

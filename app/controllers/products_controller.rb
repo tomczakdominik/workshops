@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
         redirect_to category_product_path(params[:category_id], params[:id]), :flash => { :error => 'You are not allowed to edit this product.' }
         # flash[:error] = 'You are not allowe1d to edit this product.'
       else
-        flash[:error] = 'else wewn '+wpis+' ok.'+current_user
+        flash[:error] = 'else wewn '+wpis+' ok.'+current_user.email
       end         
     end
     
