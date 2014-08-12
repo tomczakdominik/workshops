@@ -3,8 +3,7 @@
 %table.table
   %tr
     %th Title
-    %th Description    
-    %th Author    
+    %th Description            
     %th Price
     %th Category
     %th Show
@@ -14,8 +13,7 @@
   - products.each do |product|
     %tr
       %td= product.title
-      %td= product.description
-      %td= product.author
+      %td= product.description      
       %td= product.price
       %td= product.category.name
       %td

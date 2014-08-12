@@ -25,8 +25,8 @@
               = render 'layouts/header'
 
             .middle
-              %p#error= flash[:error]
-              %p.notice= notice
+              / %p#error= flash[:error]
+              / %p.notice= notice
               %p.notice= alert 
               = yield
               %br
@@ -44,13 +44,22 @@
                     %br=last_added_product.description
                     %br
                       Average rating:
+                      =last_added_product.average_rating
 
                                   
             %div{:style => "background-color: rgba(100,100,100,0.4); position: absolute; right: 10px; bottom:10px; "}
               .small= params
+              -if user_signed_in?
+                .small= current_user.id
             %br
             %br
 
+            %br
+            %br
+            %br
+            %br
+            %br
+            %br
             %br
             %br
             %br

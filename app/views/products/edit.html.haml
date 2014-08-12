@@ -1,7 +1,6 @@
 %h1 Editing product
 %p#error= flash[:error]
 =@eko
-KOKO
 / = render 'form'
 = form_for [category, product], method: :patch do |f|
   - if product.errors.any?
